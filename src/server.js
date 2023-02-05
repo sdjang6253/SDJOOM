@@ -46,19 +46,22 @@ instrument(wsServer, {
 
 
 //https 사용을 위한 설정, 
+/*
 const options = {
     key: fs.readFileSync('/mnt/01.Development/rootca.key'),
     cert: fs.readFileSync('/mnt/01.Development/rootca.crt')
   };
 
- const httpsServer = https.createServer(options, app);
+const httpsServer = https.createServer(options, app);
 
 const httpsWsServer = new Server(httpsServer);
 
 httpsServer.listen(3003, handleHttpsListen); 
+*/
 //2023.01.08  당장은 https 를 node 에서 올리지만, nginx를 추가해서 해당 설정 nginx로 옮길수 있도록 수정 
 
-httpsWsServer.on('connection' , socket => {
+//httpsWsServer.on('connection' , socket => {
+wsServer.on('connection' , socket => {
     socket.on('join_room' , (roomName ) => {
         socket.join(roomName);
         socket.to(roomName).emit('welcome');
