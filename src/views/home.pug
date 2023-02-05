@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Hello SDJoom  🖥️
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
+    body 
+        header 
+            h1 SDJoom 🖥️
+        main 
+            div
+                form
+                    span 방 이름 
+                        input#roomName(placeholder='room name' , required , type="text")
+                        br
+                    span 유저 이름
+                        input#userName(placeholder='user name' , required , type="text")
+                        br
+                    button#enterBtn Enter room
+            section 
+                header
+                    h2 접속중인 방 찾기 
+                        button#getRoomListBtn 🔄
+            section#roomList 
+            
+        script(src="/socket.io/socket.io.js")   
+        script(src="/public/js/index.js")
+        
