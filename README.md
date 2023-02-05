@@ -3,11 +3,11 @@
 [![npm version](https://img.shields.io/badge/npm-v6.14.17-blue)](https://www.npmjs.com/package/npm)
 >[노마드 코더 강의](https://nomadcoders.co/noom/lobby)를 보고 만든 소스를 수정 및 추가 개발 하여 제작
 <br> 
-* 현재 구현 기능
- - 기본적인 방생성 및 입장, p2p 화상 채팅 
- -
- -
- -
+* 현재 구현 기능<br>
+- 기본적인 방생성 및 입장, p2p 화상 채팅 
+-
+-
+-
  <br>
 
 ## ⚙️ 개발 환경 설정
@@ -44,9 +44,9 @@ npm install --save-dev @babel/node
 
 **BackEnd**
 
--express
--Socket.io
--JWT (예정)
+- express
+- Socket.io
+- JWT (예정)
 
 
 ## 🌏 기능 소개
