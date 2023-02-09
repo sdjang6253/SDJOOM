@@ -4,12 +4,15 @@ import https from 'https';
 import fs from 'fs';
 import {Server} from "socket.io";
 import { instrument } from "@socket.io/admin-ui";
+import router  from "./routes/index.js";
+import dotenv from 'dotenv';
+
 //강의에서는 __dirname 이 기본으로 가져와 지지만 나는 그게 안되어서 임의로 가져와줌.
 // package.json 에서 type:module 을 추가한 뒤로 이렇게 되는것 같음. 
 import path from "path";
 
-
 const app = express();
+
 const __dirname = path.resolve();
 
 //pug 사용 설정
@@ -18,14 +21,23 @@ app.set("views", __dirname + "/src/views" );
 
 //static 파일들의 위치를 지정해주기. 
 app.use("/public", express.static(__dirname + "/src/public"));
-app.get("/" , (req, res) => res.render("home"));
-app.get("/room" , (req, res) => {
-    res.render("room" , {  name : req.body.name , roomName : req.body.roomName , type : req.body.type})
-});
-app.get("/*" , (req, res) => res.redirect("/"));
 
-
-const handleListen = () => {};
+//env 파일 설정. 
+//설정방법 : 터미널에서 export NODE_ENV=~~~ 설정후 npm run dev (npm script 에 --NODE_ENV=local 은 윈도우는 안된다네..)
+dotenv.config();
+switch(process.env.NODE_ENV){
+    case 'local' :
+        dotenv.config({path : path.join(__dirname , 'src' , 'env' , '.env.local')});
+        break;
+    case 'server' :
+        dotenv.config({path : path.join(__dirname , 'src' , 'env' , '.env.server')});
+        break;
+    default :
+        dotenv.config({path : path.join(__dirname , 'src' , 'env' , '.env.local')});
+        break;
+}
+console.log(dotenv);
+const handleListen = () => console.log(`Listening Server ~ Server Name is ${process.env.SERVER_NAME}`);
 const handleHttpsListen = () => console.log(`Listening on http://localhost:3003`);
 
 const httpServer = http.createServer(app);// websocker 을 하기위해 server 를 명시적? 으로 생성

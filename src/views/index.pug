@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Hello SDJoom  🖥️
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
+    body 
+        header 
+            h1 🖥️ SDJoom 🖥️
+        main 
+            div
+                form
+                    span 사용자 이름
+                        br
+                        span#userNameReq(style="color:red;" hidden) 사용자 이름을 입력해주세요.
+                        input#userName(placeholder='user name' , required , type="text")
+                        br
+                    span 사용자 닉네임
+                        br
+                        span#nicknameReq(style="color:red;" hidden) 사용자 닉네임을 입력해주세요.
+                        input#nickname(placeholder='nickname' , required , type="text")
+                        br
+                    span 비밀번호 
+                        br
+                        span#passwordReq(style="color:red;" hidden) 비밀번호를 입력해주세요.
+                        input#password(placeholder='password', required , type="password")
+                    button#enterBtn(style="display:block") 입장하기
+                        
+        script(src="/public/js/index.js")
+        
